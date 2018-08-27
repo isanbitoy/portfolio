@@ -1,5 +1,5 @@
 <template>
-  <div class="portfolio-wrapper">
+  <main id="app" class="portfolio-wrapper">
 
     <div class="grid-container">
       <div class="portfolio" v-for="content in contents" v-bind:key="id">
@@ -9,7 +9,7 @@
       </div> 
     </div> 
     
-  </div>
+  </main>
 </template>
 
 <script>
@@ -19,31 +19,31 @@ export default {
       contents: [
         { 
           id: 0,
-          img: '../src/assets/images/logo.png', 
+          img: './src/assets/images/logo.png', 
           title: 'Sample_1', 
           desc: 'this is just sample 1' 
         },
         { 
           id: 1,
-          img: '../src/assets/images/logo.png', 
+          img: './src/assets/images/logo.png', 
           title: 'Sample_2', 
           desc: 'this is just sample 2' 
         },
         { 
           id: 2,
-          img: '../src/assets/images/logo.png', 
+          img: './src/assets/images/logo.png', 
           title: 'Sample_3', 
           desc: 'this is just sample 3' 
         },
         { 
           id: 3,
-          img: '../src/assets/images/logo.png', 
+          img: './src/assets/images/logo.png', 
           title: 'Sample_4', 
           desc: 'this is just sample 4' 
         },
         { 
           id: 4,
-          img: '../src/assets/images/logo.png', 
+          img: './src/assets/images/logo.png', 
           title: 'Sample_5', 
           desc: 'this is just sample 5' 
         }
@@ -60,30 +60,23 @@ export default {
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #2c3e50;
-    margin-top: 60px;
+    margin: 60px 125px 0px 125px;
 }
-
 h1, h2 {
     font-weight: normal;
 }
-
 ul {
     list-style-type: none;
     padding: 0;
 }
-
 li {
     display: inline-block;
     margin: 0 10px;
 }
-
 a {
     color: #42b983;
 }
 
-.portfolio-wrapper {
-    margin: 0px 125px;
-}
 .grind-container {
     display: grid;
     grid-gap: 5px;
