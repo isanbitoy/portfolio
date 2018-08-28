@@ -1,9 +1,9 @@
 <template>
 	<div class="grid-container">
-      <div class="portfolio" v-for="content in contents" v-bind:key="id">
-        <img v-bind:src="require('../assets/images/' + content.img)" />
-        <h3>{{ content.title }}</h3>
-        <p>{{ content.desc }}</p>
+      <div class="portfolio-content" v-for="content in contents" v-bind:key="id">
+        <img class="img"v-bind:src="require('../assets/images/' + content.img)" />
+        <h3 class="title">{{ content.title }}</h3>
+        <p class="desc">{{ content.desc }}</p>
       </div> 
     </div>
 </template>
@@ -50,8 +50,14 @@ export default {
 </script>
 
 <style>
-.grind-container {
+.grid-container { 
     display: grid;
-    grid-gap: 5px;
+    grid-gap: 6px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-auto-rows: 1fr;
+    grid-auto-flow: dense;
+}
+.portfolio-content {
+	background: #d3d3d3;
 }
 </style>

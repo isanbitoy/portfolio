@@ -1,30 +1,41 @@
 <template>
-  <main id="app">
+  <section id="app" class="app-wrapper">
+    <h1 class="portfolio-title">PORTFOLIO</h1>
+    <div></div>
     <portfolio-panel></portfolio-panel>
-  </main>
+  </section>
 </template>
 
 <style>
-#app {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-    margin: 60px 125px 0px 125px;
-}
 h1, h2 {
     font-weight: normal;
 }
-ul {
-    list-style-type: none;
-    padding: 0;
-}
-li {
-    display: inline-block;
-    margin: 0 10px;
-}
 a {
     color: #42b983;
+}
+.app-wrapper {
+    font-family: 'Helvetica' sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    margin: 1.5em 5% 0px 5%;
+}
+.app-wrapper > div {
+    position: relative;
+}
+.app-wrapper > div::after {
+    position: absolute;
+    content: '';
+    background: #d3d3d3;
+    bottom: 1em;
+    left: 0;
+    height: 3px;
+    width: 100%;
+}
+.portfolio-title {
+    font-size: 2.0em;
+    display: flex;
+    justify-content: flex-start;
+    color: #a6a6a6;
 }
 </style>
