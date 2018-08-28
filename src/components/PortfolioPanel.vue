@@ -1,8 +1,7 @@
 <template>
 	<div class="grid-container">
       <div class="portfolio" v-for="content in contents" v-bind:key="id">
-        <!--<img v-bind:src="'../assets/images/' + content.img" />-->
-        <img v-bind:src="content.img">
+        <img v-bind:src="require('../assets/images/' + content.img)" />
         <h3>{{ content.title }}</h3>
         <p>{{ content.desc }}</p>
       </div> 
