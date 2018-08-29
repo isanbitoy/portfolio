@@ -1,7 +1,7 @@
 <template>
   <section id="app" class="app-wrapper">
     <h1 class="portfolio-title">PORTFOLIO</h1>
-    <div></div>
+    <div class="portfolio-div-line"></div>
     <portfolio-panel></portfolio-panel>
   </section>
 </template>
@@ -20,10 +20,16 @@ a {
     text-align: center;
     margin: 1.5em 5% 0px 5%;
 }
-.app-wrapper > div {
+.portfolio-title {
+    font-size: 2.0em;
+    display: flex;
+    justify-content: flex-start;
+    color: #a6a6a6;
+}
+.portfolio-div-line {
     position: relative;
 }
-.app-wrapper > div::after {
+.portfolio-div-line::after {
     position: absolute;
     content: '';
     background: #d3d3d3;
@@ -31,11 +37,5 @@ a {
     left: 0;
     height: 3px;
     width: 100%;
-}
-.portfolio-title {
-    font-size: 2.0em;
-    display: flex;
-    justify-content: flex-start;
-    color: #a6a6a6;
 }
 </style>

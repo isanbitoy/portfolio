@@ -1,11 +1,16 @@
 <template>
-	<div class="grid-container">
+  <div>
+    <div class="button-group">
+      <button class="button" v-bind:class="[key===filterOption? 'is-checked' : '']" v-for="(key, value) in option.getFilterData" @click="filter(key)">{{ key }}</button>
+    </div>
+	  <div class="grid-container">
       <div class="portfolio-content" v-for="content in contents" v-bind:key="id">
         <img class="img"v-bind:src="require('../assets/images/' + content.img)" />
         <h3 class="title">{{ content.title }}</h3>
         <p class="desc">{{ content.desc }}</p>
       </div> 
     </div>
+  </div>
 </template>
 
 <script>
@@ -17,7 +22,8 @@ export default {
           		id: 0,
           		img: 'logo.png', 
           		title: 'Sample_1', 
-          		desc: 'this is just sample 1' 
+          		desc: 'this is just sample 1',
+              category: ''
         	},
         	{ 
           		id: 1,
@@ -43,7 +49,23 @@ export default {
           		title: 'Sample_5', 
           		desc: 'this is just sample 5' 
         	}
-      		]
+      		],
+          selected: null,
+          filterOption: 'show all',
+          option: {
+            itemSelector: '',
+            getFilterData: {
+              "show all": function() {
+                return true;
+              },
+            }
+          },
+          methods: {
+            filter: function(key) {
+              this.isotopeFilter(key);
+              this.filterOption = key;
+            }
+          }
 		}
 	}
 }
