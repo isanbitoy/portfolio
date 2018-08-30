@@ -1,9 +1,13 @@
 <template>
-  <div>
-    <div class="filter-buttons">
-      <a class="topnav-item" v-on:click="shuffle"><span class="item">SHUFFLE</span></a>
-      <a class="topnav-item" v-on:click="filter('all')"><span class="item">ALL</span></a>
-      <a class="topnav-item" v-on:click="filter('tag1')"><span class="item">TAG 1</span></a>
+  <div class="portfolio-wrapper">
+
+  	<h1 class="portfolio-title">PORTFOLIO</h1>
+    <div class="portfolio-div-line"></div>
+
+    <div class="portfolio-buttons">
+      <a class="panel-item" v-on:click="shuffle"><span class="item">SHUFFLE</span></a>
+      <a class="panel-item" v-on:click="filter('all')"><span class="item">ALL</span></a>
+      <a class="panel-item" v-on:click="filter('tag1')"><span class="item">TAG 1</span></a>
     </div>
 
     <transition-group name="grid-content" class="grid-content" tag="section">
@@ -13,6 +17,7 @@
         <p class="desc">{{ content.desc }}</p>
       </div> 
     </transition-group>
+
   </div>
 </template>
 
@@ -95,40 +100,63 @@ export default {
 </script>
 
 <style>
-.filter-buttons {
-    margin-bottom: 15px;
+.portfolio-wrapper {
+	width: 100%;
+	height: 100%;
 }
-.topnav-item {
-  display: inline-flex;
-  color: #A6A6A6;
-  text-align: center;
-  justify-content: center;
-  padding: 18px 20px;
-  text-decoration: none;
-  font-size: 24px;
+.portfolio-title {
+    font-size: 2.0em;
+    display: flex;
+    justify-content: flex-start;
+    color: #a6a6a6;
+    margin: 0;
 }
-.topnav-item:hover {
-  color: #333;
+.portfolio-div-line {
+    position: relative;
+}
+.portfolio-div-line::after {
+    position: absolute;
+    content: '';
+    background: #d3d3d3;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    width: 100%;
+}
+.portfolio-buttons {
+	margin: 10px 0px 10px 0px;
+}
+.panel-item {
+	display: inline-flex;
+	color: #A6A6A6;
+	text-align: center;
+	justify-content: center;
+	padding: 18px 20px;
+	text-decoration: none;
+	font-size: 24px;
+}
+.panel-item:hover {
+  	color: #333;
 }
 .item {
-  position: relative;
-  cursor: pointer;
+  	position: relative;
+  	cursor: pointer;
 }
 .item::after {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 2px;
-  bottom: 0;
-  left: 0;
-  transform: scaleX(0);
-  transform-origin: bottom;
-  transition: transform 0.25s ease-out;
+  	content: '';
+  	position: absolute;
+  	width: 100%;
+  	height: 2px;
+  	bottom: 0;
+  	left: 0;
+  	transform: scaleX(0);
+  	transform-origin: bottom;
+  	transition: transform 0.25s ease-out;
 }
 .item:hover::after {
-  background-color: #333;
-  transform: scaleX(1);
-  transform-origin: bottom center;
+  	background-color: #333;
+  	transform: scaleX(1);
+  	transform-origin: bottom center;
 }
 .grid-content { 
     display: grid;
