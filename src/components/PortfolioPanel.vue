@@ -7,16 +7,23 @@
     <div class="portfolio-buttons">
       <a class="panel-item" v-on:click="shuffle"><span class="item fa fa-random"></span></a>
       <a class="panel-item" v-on:click="filter('all')"><span class="item">All</span></a>
-      <a class="panel-item" v-on:click="filter('tag1')"><span class="item">TAG 1</span></a>
-      <a class="panel-item" v-on:click="filter('tag2')"><span class="item">TAG 2</span></a>
+      <a class="panel-item" v-on:click="filter('tag1')"><span class="item">Web</span></a>
+      <a class="panel-item" v-on:click="filter('tag2')"><span class="item">Games</span></a>
     </div>
 
     <transition-group name="grid-content" class="grid-content" tag="section">
-      <div class="item-content" v-for="content in filteredContents" v-bind:key="content.id">
+      <a class="item-content" 
+        v-for="content in filteredContents" 
+        v-bind:key="content.id"
+        v-bind:title="content.title"
+        v-bind:href="content.link" 
+        target="_blank">
+        
         <img class="img"v-bind:src="require('../assets/images/' + content.img)" />
         <h3 class="title">{{ content.title }}</h3>
         <p class="desc">{{ content.desc }}</p>
-      </div> 
+        
+      </a> 
     </transition-group>
 
   </div>
@@ -33,6 +40,7 @@ export default {
           		img: 'logo.png', 
           		title: 'Sample_1', 
           		desc: 'this is just sample 1',
+              link: 'https://isanbitoy.itch.io/chain-break',
               tags: ['all', 'tag2']
         	},
         	{ 
@@ -40,6 +48,7 @@ export default {
           		img: 'logo.png', 
           		title: 'Sample_2', 
           		desc: 'this is just sample 2',
+              link: 'https://isanbitoy.itch.io/chain-break',
               tags: ['all', 'tag2'] 
         	},
         	{ 
@@ -47,6 +56,7 @@ export default {
           		img: 'logo.png', 
           		title: 'Sample_3', 
           		desc: 'this is just sample 3',
+              link: 'https://isanbitoy.itch.io/chain-break',
               tags: ['all', 'tag1'] 
         	},
         	{ 
@@ -54,6 +64,7 @@ export default {
           		img: 'logo.png', 
           		title: 'Sample_4', 
           		desc: 'this is just sample 4',
+              link: 'https://isanbitoy.itch.io/chain-break',
               tags: ['all', 'tag2']
         	},
         	{ 
@@ -61,6 +72,7 @@ export default {
           		img: 'logo.png', 
           		title: 'Sample_5', 
           		desc: 'this is just sample 5',
+              link: 'https://isanbitoy.itch.io/chain-break',
               tags: ['all', 'tag1'] 
         	},
           { 
@@ -68,6 +80,7 @@ export default {
               img: 'logo.png', 
               title: 'Sample_6', 
               desc: 'this is just sample 5',
+              link: 'https://isanbitoy.itch.io/chain-break',
               tags: ['all', 'tag1'] 
           },
           { 
@@ -75,6 +88,7 @@ export default {
               img: 'logo.png', 
               title: 'Sample_7', 
               desc: 'this is just sample 5',
+              link: 'https://isanbitoy.itch.io/chain-break',
               tags: ['all', 'tag1'] 
           }
       		],
@@ -175,5 +189,6 @@ export default {
 .item-content {
 	  background: #d3d3d3;
     transition: all 0.8s ease;
+    text-decoration: none;
 }
 </style>
