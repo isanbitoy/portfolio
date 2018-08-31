@@ -5,9 +5,10 @@
     <div class="portfolio-div-line"></div>
 
     <div class="portfolio-buttons">
-      <a class="panel-item" v-on:click="shuffle"><span class="item">SHUFFLE</span></a>
-      <a class="panel-item" v-on:click="filter('all')"><span class="item">ALL</span></a>
+      <a class="panel-item" v-on:click="shuffle"><span class="item fa fa-random"></span></a>
+      <a class="panel-item" v-on:click="filter('all')"><span class="item">All</span></a>
       <a class="panel-item" v-on:click="filter('tag1')"><span class="item">TAG 1</span></a>
+      <a class="panel-item" v-on:click="filter('tag2')"><span class="item">TAG 2</span></a>
     </div>
 
     <transition-group name="grid-content" class="grid-content" tag="section">
@@ -32,7 +33,7 @@ export default {
           		img: 'logo.png', 
           		title: 'Sample_1', 
           		desc: 'this is just sample 1',
-              tags: ['all', 'tag1']
+              tags: ['all', 'tag2']
         	},
         	{ 
           		id: 1,
@@ -166,13 +167,13 @@ export default {
     grid-auto-flow: dense;
 }
 .grid-content-enter-active, .grid-content-leave-active {
-    transition: opacity 1.0s ease;
+    transition: all 1.0s ease;
 }
 .grid-content-enter, .grid-content-leave-to {
     opacity: 0;
 }
 .item-content {
 	  background: #d3d3d3;
-    transition: transform 1.0s;
+    transition: all 0.8s ease;
 }
 </style>
