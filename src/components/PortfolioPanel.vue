@@ -101,8 +101,8 @@ export default {
 
 <style>
 .portfolio-wrapper {
-	width: 100%;
-	height: 100%;
+	  width: 100%;
+	  height: 100%;
 }
 .portfolio-title {
     font-size: 2.0em;
@@ -127,13 +127,13 @@ export default {
 	margin: 10px 0px 10px 0px;
 }
 .panel-item {
-	display: inline-flex;
-	color: #A6A6A6;
-	text-align: center;
-	justify-content: center;
-	padding: 18px 20px;
-	text-decoration: none;
-	font-size: 24px;
+	  display: inline-flex;
+	  color: #A6A6A6;
+	  text-align: center;
+	  justify-content: center;
+	  padding: 18px 20px;
+	  text-decoration: none;
+	  font-size: 20px;
 }
 .panel-item:hover {
   	color: #333;
@@ -164,15 +164,15 @@ export default {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     grid-auto-rows: 1fr;
     grid-auto-flow: dense;
-    transition: all;
-}
-.item-content {
-	  background: #d3d3d3;
 }
 .grid-content-enter-active, .grid-content-leave-active {
-    transition: opacity 0.5s ease-out;
+    transition: opacity 1.0s ease;
 }
 .grid-content-enter, .grid-content-leave-to {
     opacity: 0;
+}
+.item-content {
+	  background: #d3d3d3;
+    transition: transform 1.0s;
 }
 </style>
