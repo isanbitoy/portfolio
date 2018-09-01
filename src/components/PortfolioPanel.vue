@@ -1,19 +1,22 @@
 <template>
   <div class="portfolio-wrapper">
 
-  	<h1 class="portfolio-title">PORTFOLIO</h1>
+    <div class="portfolio-index">
+      <h1 class="portfolio-title">PORTFOLIO</h1>
+      <input class="search-bar" type="text" placeholder="Search" v-model="search_filter">
+    </div>
     <div class="portfolio-div-line"></div>
 
     <div class="portfolio-buttons">
       <a class="panel-item" v-on:click="shuffle"><span class="item fa fa-random"></span></a>
-      <a class="panel-item" v-on:click="filter('all')"><span class="item">All</span></a>
-      <a class="panel-item" v-on:click="filter('tag1')"><span class="item">Web</span></a>
-      <a class="panel-item" v-on:click="filter('tag2')"><span class="item">Games</span></a>
+      <a class="panel-item" v-on:click="filterTag('all')"><span class="item">All</span></a>
+      <a class="panel-item" v-on:click="filterTag('tag1')"><span class="item">Web</span></a>
+      <a class="panel-item" v-on:click="filterTag('tag2')"><span class="item">Games</span></a>
     </div>
 
     <transition-group name="grid-content" class="grid-content" tag="section">
       <a class="item-content" 
-        v-for="content in filteredContents" 
+        v-for="content in filteredContents"
         v-bind:key="content.id"
         v-bind:title="content.title"
         v-bind:href="content.link" 
@@ -34,6 +37,8 @@ import _ from 'lodash'
 export default {
 	data() {
 		return {
+      search_filter: '',
+      currentTag: 'all',
 			contents: [
         	{ 
           		id: 0,
@@ -91,20 +96,23 @@ export default {
               link: 'https://isanbitoy.itch.io/chain-break',
               tags: ['all', 'tag1'] 
           }
-      		],
-          currentTag: 'all',
+      		]
 		}
 	},
   computed: {
     filteredContents: function() {
-      const filter = this.currentTag;
-      return this.contents.filter(function(item) {
-          return item.tags.indexOf(filter) !== -1;
-      });
+      let tempTag = this.currentTag;
+      return this.contents
+        .filter(function(item) {
+          return item.tags.indexOf(tempTag) !== -1;
+        })
+        .filter((item) => {
+          return item.title.match(this.search_filter);
+        });
     }
   },
   methods: {
-    filter: function(tag) {
+    filterTag: function(tag) {
       this.currentTag = tag;
     },
     shuffle: function() {
@@ -119,12 +127,23 @@ export default {
 	  width: 100%;
 	  height: 100%;
 }
+.portfolio-index {
+    display: flex;
+}
 .portfolio-title {
     font-size: 2.0em;
     display: flex;
     justify-content: flex-start;
     color: #a6a6a6;
+    left: 0;
     margin: 0;
+}
+.search-bar {
+    font-size: 1.0em;
+    display: flex;
+    justify-content: flex-end;
+    right: 0;
+    margin-bottom: 5px;
 }
 .portfolio-div-line {
     position: relative;
