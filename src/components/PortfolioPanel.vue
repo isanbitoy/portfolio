@@ -15,18 +15,13 @@
     </div>
 
     <transition-group name="grid-content" class="grid-content" tag="section">
-      <a class="item-content" 
-        v-for="content in filteredContents"
-        v-bind:key="content.id"
-        v-bind:title="content.title"
-        v-bind:href="content.link" 
-        target="_blank">
-        
-        <img class="img"v-bind:src="require('../assets/images/' + content.img)" />
-        <h3 class="title">{{ content.title }}</h3>
-        <p class="desc">{{ content.desc }}</p>
-        
-      </a> 
+      <div class="item-content" v-for="content in filteredContents" v-bind:key="content.id">
+        <a v-bind:title="content.title" v-bind:href="content.link" target="_blank">
+          <img class="img"v-bind:src="require('../assets/images/' + content.img)" />
+          <h3 class="title">{{ content.title }}</h3>
+          <p class="desc">{{ content.desc }}</p> 
+        </a> 
+      </div>
     </transition-group>
 
   </div>
