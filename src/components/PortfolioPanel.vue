@@ -5,19 +5,19 @@
       <h1 class="portfolio-title">PORTFOLIO</h1>
       <input class="search-bar" type="text" placeholder="Search" v-model="search_filter">
     </div>
-    <div class="portfolio-div-line"></div>
+    <div class="div-line"></div>
 
-    <div class="portfolio-buttons">
-      <a class="panel-item" v-on:click="shuffle"><span class="item fa fa-random"></span></a>
-      <a class="panel-item" v-on:click="filterTag('all')"><span class="item">All</span></a>
-      <a class="panel-item" v-on:click="filterTag('tag1')"><span class="item">Web</span></a>
-      <a class="panel-item" v-on:click="filterTag('tag2')"><span class="item">Games</span></a>
+    <div class="panel-item">
+      <a v-on:click="shuffle"><span class="item fa fa-random"></span></a>
+      <a v-on:click="filterTag('all')"><span class="item">All</span></a>
+      <a v-on:click="filterTag('tag1')"><span class="item">Web</span></a>
+      <a v-on:click="filterTag('tag2')"><span class="item">Games</span></a>
     </div>
 
     <transition-group name="grid-content" class="grid-content" tag="section">
       <div class="item-content" v-for="content in filteredContents" v-bind:key="content.id">
         <a v-bind:title="content.title" v-bind:href="content.link" target="_blank">
-          <img class="img"v-bind:src="require('../assets/images/' + content.img)" />
+          <img class="img" v-bind:src="require('../assets/images/' + content.img)" />
           <h3 class="title">{{ content.title }}</h3>
           <p class="desc">{{ content.desc }}</p> 
         </a> 
@@ -140,10 +140,10 @@ export default {
     right: 0;
     margin-bottom: 5px;
 }
-.portfolio-div-line {
+.div-line {
     position: relative;
 }
-.portfolio-div-line::after {
+.div-line::after {
     position: absolute;
     content: '';
     background: #d3d3d3;
@@ -152,19 +152,19 @@ export default {
     height: 3px;
     width: 100%;
 }
-.portfolio-buttons {
-	margin: 10px 0px 10px 0px;
+.panle-item {
+    position: relative;
+    text-align: center;
+    margin: 10px 0px 10px 0px;
 }
-.panel-item {
+.panel-item > a{
 	  display: inline-flex;
 	  color: #A6A6A6;
-	  text-align: center;
-	  justify-content: center;
 	  padding: 18px 20px;
 	  text-decoration: none;
 	  font-size: 20px;
 }
-.panel-item:hover {
+.panel-item > a:hover {
   	color: #333;
 }
 .item {
