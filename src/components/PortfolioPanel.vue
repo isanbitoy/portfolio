@@ -2,8 +2,8 @@
   <div class="portfolio-wrapper">
 
     <div class="portfolio-index">
-      <h1 class="portfolio-title">PORTFOLIO</h1>
-      <input class="search-bar" type="text" placeholder="Search" v-model="search_filter">
+      <div><h1 class="portfolio-title">My Portfolio</h1></div>
+      <div><input class="search-bar" type="text" placeholder="Search" v-model="search_filter"></div>
     </div>
     <div class="div-line"></div>
 
@@ -123,22 +123,20 @@ export default {
 	  height: 100%;
 }
 .portfolio-index {
+    position: relative;
     display: flex;
+    margin: 5px;
 }
 .portfolio-title {
     font-size: 2.0em;
-    display: flex;
-    justify-content: flex-start;
     color: #a6a6a6;
-    left: 0;
     margin: 0;
+    left: 0;
 }
 .search-bar {
-    font-size: 1.0em;
-    display: flex;
-    justify-content: flex-end;
+    position: absolute;
+    font-size: 1.5em;
     right: 0;
-    margin-bottom: 5px;
 }
 .div-line {
     position: relative;
@@ -152,8 +150,7 @@ export default {
     height: 3px;
     width: 100%;
 }
-.panle-item {
-    position: relative;
+.panel-item {
     text-align: center;
     margin: 10px 0px 10px 0px;
 }
@@ -190,7 +187,7 @@ export default {
 .grid-content { 
     display: grid;
     grid-gap: 6px;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     grid-auto-rows: 1fr;
     grid-auto-flow: dense;
 }
@@ -201,8 +198,13 @@ export default {
     opacity: 0;
 }
 .item-content {
-	  background: #d3d3d3;
+	  border: 2px solid #d3d3d3;
+    border-radius: 6px;
     transition: all 0.8s ease;
+    text-align: center;
+    text-decoration: none;
+}
+.item-content > a {
     text-decoration: none;
 }
 </style>
