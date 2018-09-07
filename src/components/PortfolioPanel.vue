@@ -12,6 +12,7 @@
       <a v-on:click="filterTag('all')"><span class="item">All</span></a>
       <a v-on:click="filterTag('tag1')"><span class="item">Web</span></a>
       <a v-on:click="filterTag('tag2')"><span class="item">Games</span></a>
+      <a v-on:click="filterTag('tag3')"><span class="item">Design</span></a>
     </div>
 
     <transition-group name="grid-content" class="grid-content" tag="section">
@@ -57,7 +58,7 @@ export default {
           		title: 'Sample_3', 
           		desc: 'this is just sample 3',
               link: 'https://isanbitoy.itch.io/chain-break',
-              tags: ['all', 'tag1'] 
+              tags: ['all', 'tag3'] 
         	},
         	{ 
           		id: 3,
@@ -65,7 +66,7 @@ export default {
           		title: 'Sample_4', 
           		desc: 'this is just sample 4',
               link: 'https://isanbitoy.itch.io/chain-break',
-              tags: ['all', 'tag2']
+              tags: ['all', 'tag1']
         	},
         	{ 
           		id: 4,
@@ -73,23 +74,39 @@ export default {
           		title: 'Sample_5', 
           		desc: 'this is just sample 5',
               link: 'https://isanbitoy.itch.io/chain-break',
-              tags: ['all', 'tag1'] 
+              tags: ['all', 'tag2'] 
         	},
           { 
               id: 5,
               img: 'logo.png', 
               title: 'Sample_6', 
-              desc: 'this is just sample 5',
+              desc: 'this is just sample 6',
               link: 'https://isanbitoy.itch.io/chain-break',
-              tags: ['all', 'tag1'] 
+              tags: ['all', 'tag3'] 
           },
           { 
               id: 6,
               img: 'logo.png', 
               title: 'Sample_7', 
-              desc: 'this is just sample 5',
+              desc: 'this is just sample 7',
               link: 'https://isanbitoy.itch.io/chain-break',
               tags: ['all', 'tag1'] 
+          },
+          { 
+              id: 7,
+              img: 'logo.png', 
+              title: 'Sample_8', 
+              desc: 'this is just sample 8',
+              link: 'https://isanbitoy.itch.io/chain-break',
+              tags: ['all', 'tag2'] 
+          },
+          { 
+              id: 8,
+              img: 'logo.png', 
+              title: 'Sample_9', 
+              desc: 'this is just sample 9',
+              link: 'https://isanbitoy.itch.io/chain-break',
+              tags: ['all', 'tag3'] 
           }
       		]
 		}
